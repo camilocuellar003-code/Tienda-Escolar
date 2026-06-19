@@ -43,7 +43,7 @@ const menuProductos = [
     { id: 42, nombre: "Chocolate Carlos V", precio: 15.00, categoria: "snacks", enExistencia: true},
     { id: 43, nombre: "Chocolate Kinder Delice", precio: 20.00, categoria: "snacks", enExistencia: true},
     { id: 44, nombre: "Aciditos", precio: 1.50, categoria: "snacks", enExistencia: true},
-    { id: 45, nombre: "Paleta de Maño", precio: 5.00, categoria: "snacks", enExistencia: true},
+    { id: 45, nombre: "Paleta de Mano", precio: 5.00, categoria: "snacks", enExistencia: true},
     { id: 46, nombre: "Paleta Pintazul", precio: 5.00, categoria: "snacks", enExistencia: true},
     { id: 47, nombre: "Paleta Sandi Brochas", precio: 5.00, categoria: "snacks", enExistencia: true},
     { id: 48, nombre: "Chicle Trident Fresa 4 pastillas", precio: 3.00, categoria: "snacks", enExistencia: true}
