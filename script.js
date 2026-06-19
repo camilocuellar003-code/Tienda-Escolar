@@ -38,7 +38,15 @@ const menuProductos = [
     { id: 37, nombre: "Doritos Dinamita Morados", precio: 25.00, categoria: "snacks", enExistencia: true},
     { id: 38, nombre: "Doritos Dinamita Verdes", precio: 25.00, categoria: "snacks", enExistencia: true},
     { id: 39, nombre: "Runners", precio: 25.00, categoria: "snacks", enExistencia: true},
-    { id: 40, nombre: "Cafe con leche", precio: 20.00, categoria: "refresco y agua", enExistencia: true}
+    { id: 40, nombre: "Cafe con leche", precio: 20.00, categoria: "refresco y agua", enExistencia: true},
+    { id: 41, nombre: "Hamburguesas", precio: 45.00, categoria: "comida", enExistencia: true},
+    { id: 42, nombre: "Chocolate Carlos V", precio: 15.00, categoria: "snacks", enExistencia: true},
+    { id: 43, nombre: "Chocolate Kinder Delice", precio: 20.00, categoria: "snacks", enExistencia: true},
+    { id: 44, nombre: "Aciditos", precio: 1.50, categoria: "snacks", enExistencia: true},
+    { id: 45, nombre: "Paleta de Maño", precio: 5.00, categoria: "snacks", enExistencia: true},
+    { id: 46, nombre: "Paleta Pintazul", precio: 5.00, categoria: "snacks", enExistencia: true},
+    { id: 47, nombre: "Paleta Sandi Brochas", precio: 5.00, categoria: "snacks", enExistencia: true},
+    { id: 48, nombre: "Chicle Trident Fresa 4 pastillas", precio: 3.00, categoria: "snacks", enExistencia: true}
 ];
 
 
