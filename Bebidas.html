@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combos Estudiantiles - Cafetería TECSUM</title>
+    <link rel="stylesheet" href="Promocion.css">
+</head>
+<body>
+
+    <a href="index.html" class="btn-back">⬅ Volver al Inicio</a>
+
+    <header>
+        <h1>🥤 Bebidas Refrescantes 🥤</h1>
+        <p class="subtitle"></p>
+    </header>
+
+    <main class="combos-container">
+
+        <div class="combo-card">
+            <img src="Gemini_Generated_Image_34g0hs34g0hs34g0.png" alt="Agua de Frutas" class="combo-img">
+            <div class="combo-info">
+                <span class="combo-tag">Promocion Liquida</span>
+                <h3>Frutas</h3>
+                <p class="combo-description">Agua fresca de fruta natural de temporada de 500ml</p>
+                <div class="combo-footer">
+                    <span class="price">$25.00</span>
+                    <button class="btn-add" onclick="agregarComboCarrito(101, 'Agua de Frutas', 25.00)">Agregar ＋</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="combo-card">
+            <img src="Gemini_Generated_Image_3vx9sf3vx9sf3vx9.png" alt="Refresco" class="combo-img">
+            <div class="combo-info">
+                <span class="combo-tag">Promoción Gaseoso</span>
+                <h3>Refresco</h3>
+                <p class="combo-description">Refresco Coca-Cola de lata de 350ml</p>
+                <div class="combo-footer">
+                    <span class="price">$35.00</span>
+                    <button class="btn-add" onclick="agregarComboCarrito(102, 'Refresco', 35.00)">Agregar ＋</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="combo-card">
+            <img src="Gemini_Generated_Image_fz95xffz95xffz95.png" alt="Jugo" class="combo-img">
+            <div class="combo-info">
+                <span class="combo-tag">Promoción Liquida</span>
+                <h3>Jugo</h3>
+                <p class="combo-description">Jugo de naranja recién exprimido de 350ml</p>
+                <div class="combo-footer">
+                    <span class="price">$30.00</span>
+                    <button class="btn-add" onclick="agregarComboCarrito(103, 'Jugo', 30.00)">Agregar ＋</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="combo-card">
+            <img src="Gemini_Generated_Image_feqgyefeqgyefeqg.png" alt="Té Helado" class="combo-img">
+            <div class="combo-info">
+                <span class="combo-tag">Promoción Helada</span>
+                <h3>Té Helado</h3>
+                <p class="combo-description">Té helado endulzado con un toque de limón de 500ml</p>
+                <div class="combo-footer">
+                    <span class="price">$35.00</span>
+                    <button class="btn-add" onclick="agregarComboCarrito(104, 'Té Helado', 35.00)">Agregar ＋</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="combo-card">
+            <img src="Gemini_Generated_Image_1ukh4p1ukh4p1ukh.png" alt="Agua Mineral" class="combo-img">
+            <div class="combo-info">
+                <span class="combo-tag">Promoción Mineral</span>
+                <h3>Agua Mineral</h3>
+                <p class="combo-description">Agua mineral preparada con limón, sal y un toque de chile en polvo</p>
+                <div class="combo-footer">
+                    <span class="price">$45.00</span>
+                    <button class="btn-add" onclick="agregarComboCarrito(105, 'Agua Mineral', 45.00)">Agregar ＋</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="combo-card">
+            <img src="Gemini_Generated_Image_fcw69qfcw69qfcw6.png" alt="Café Frío" class="combo-img">
+            <div class="combo-info">
+                <span class="combo-tag">Promoción Fria</span>
+                <h3>Café Frío</h3>
+                <p class="combo-description">Café americano servido con hielo</p>
+                <div class="combo-footer">
+                    <span class="price">$40.00</span>
+                    <button class="btn-add" onclick="agregarComboCarrito(106, 'Café Frío', 40.00)">Agregar ＋</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="script.js">
+       function agregarComboCarrito(id, nombre, precio) {
+    carrito.push({
+        id: id,
+        nombre: nombre,
+        precio: Number(precio)
+    });
+
+    updateCartUI();
+    showNotification(`${nombre} agregado al carrito 🛒`);
+}
+    </script>
+
+    <button id="policies-toggle" class="policies-toggle" onclick="togglePoliciesModal()">📜</button>
+
+    <div class="login-toggle" id="login-toggle" onclick="toggleLoginModal()">
+        👤
+    </div>
+
+    <div class="cart-toggle" onclick="toggleCart()">
+        🛒 <span id="cart-count">0</span>
+    </div>
+
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2>Tu Pedido</h2>
+            <button class="close-cart" onclick="toggleCart()">✕</button>
+        </div>
+        
+        <div class="cart-items" id="cart-items-container">
+        </div>
+
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">$0.00</span>
+            </div>
+            
+            <div class="payment-tabs-container">
+                <div class="payment-tabs">
+                    <button class="tab-btn active" onclick="switchPaymentTab('paypal')">PayPal</button>
+                    <button class="tab-btn" onclick="switchPaymentTab('nu')">Nu México</button>
+                </div>
+
+                <div id="tab-content-paypal" class="tab-content active">
+                    <div class="payment-form">
+                        <input type="email" id="paypal-email" placeholder="Correo electrónico de PayPal">
+                        <input type="password" id="paypal-password" placeholder="Contraseña">
+                        <button id="btn-pay-paypal" class="btn-submit-pay" disabled onclick="processPayPalPayment()">
+                            Pagar con PayPal
+                        </button>
+                    </div>
+                </div>
+
+                <div id="tab-content-nu" class="tab-content">
+                    <div class="payment-form">
+                        <input type="text" id="nu-card-number" placeholder="Número de tarjeta (16 dígitos)" maxlength="16">
+                        <input type="text" id="nu-card-name" placeholder="Nombre del titular">
+                        
+                        <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                            <input type="text" id="nu-card-expiry" placeholder="MM/AA" maxlength="5" style="width: 50%; margin-bottom: 0;">
+                            <input type="password" id="nu-card-nip" placeholder="NIP de 4 dígitos" maxlength="4" style="width: 50%; margin-bottom: 0;">
+                        </div>
+                        
+                        <button id="btn-pay-nu" class="btn-submit-pay" disabled onclick="processNuPayment()">
+                            PAGAR CON TARJETA 
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="purchase-modal">
+        <div class="modal-content">
+            <div class="modal-icon">✓</div>
+            <h2>¡Compra Realizada!</h2>
+            <p>Tu pedido ha sido creado correctamente</p>
+            <p class="modal-sub">Recoge tu pedido en caja con tu nombre.</p>
+            <button class="btn-close-modal" onclick="closeModal('purchase-modal')">Entendido</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="login-modal">
+        <div class="modal-content login-content">
+            <div class="modal-icon login-icon">👤</div>
+            <h2>Credencial Escolar</h2>
+            <p>Ingresa tu matrícula para iniciar sesión en la cafetería.</p>
+            
+            <div class="input-container">
+                <input type="text" id="student-matricula" placeholder="Ej. 202610234" maxlength="15">
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-close-modal btn-cancel" onclick="toggleLoginModal()">Cancelar</button>
+                <button class="btn-close-modal" onclick="loginStudent()">Ingresar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="policies-modal">
+        <div class="modal-content" style="border-color: var(--accent-color); max-width: 450px;">
+            <div class="modal-icon">📄</div>
+            <h2>Reglamento y Seguridad</h2>
+            <div style="text-align: left; margin: 15px 0; color: #b4c6ef; font-size: 0.95rem; line-height: 1.5;">
+                <p>🔒 <strong>Seguridad:</strong> Tu matrícula está protegida y sólo se usa para identificar tu orden en la barra de entrega.</p><br>
+                <p>📋 <strong>Reglas del Plantel:</strong> Toda orden debe retirarse presentando tu matricula para evitar aglomeraciones en la barra.</p><br>
+                <p>💳 <strong>Métodos de Pago:</strong> Para agilizar el servicio, <strong>NO se acepta efectivo</strong>. Puedes pagar usando PayPal (vinculada con una tarjeta) o tu cuenta de Nu.</p>
+            </div>
+            <button class="btn-close-modal" onclick="closeModal('policies-modal')">Entendido</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
