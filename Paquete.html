@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combos Estudiantiles - Cafetería TECSUM</title>
+    <link rel="stylesheet" href="Promocion.css">
+</head>
+<body>
+
+    <a href="index.html" class="btn-back">⬅ Volver al Inicio</a>
+
+    <header>
+        <h1>🍳 Paquetes de Desayuno 🍳</h1>
+        <p class="subtitle">Un buen desayuno para antes de clases!</p>
+    </header>
+
+    <main class="combos-container">
+
+        <div class="combo-card">
+            <img src="Gemini_Generated_Image_l3glg0l3glg0l3gl.png" alt="Desayuno Continental" class="combo-img">
+            <div class="combo-info">
+                <span class="combo-tag">Promoción Especial</span>
+                <h3>Desayuno Continental</h3>
+                <p class="combo-description">Café americano + pan dulce artesanal con mermelada</p>
+                <div class="combo-footer">
+                    <span class="price">$45.00</span>
+                    <button class="btn-add" onclick="agregarComboCarrito(101, 'Desayuno Continental', 45.00)">Agregar ＋</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="combo-card">
+            <img src="Gemini_Generated_Image_x3p6sdx3p6sdx3p6.png" alt="Desayuno Americano" class="combo-img">
+            <div class="combo-info">
+                <span class="combo-tag">Promoción Especial</span>
+                <h3>Desayuno Americano</h3>
+                <p class="combo-description">Dos huevos estrellados + pan tostado + jugo de naranja</p>
+                <div class="combo-footer">
+                    <span class="price">$40.00</span>
+                    <button class="btn-add" onclick="agregarComboCarrito(102, 'Desayuno Americano', 40.00)">Agregar ＋</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="combo-card">
+            <img src="Gemini_Generated_Image_lf3pollf3pollf3p.png" alt="Desayuno Méxicano" class="combo-img">
+            <div class="combo-info">
+                <span class="combo-tag">Promoción Méxicana</span>
+                <h3>Desayuno Méxicano</h3>
+                <p class="combo-description">Chilaquiles verdes con pollo, con 2 huevos estrellados + café de olla</p>
+                <div class="combo-footer">
+                    <span class="price">$50.00</span>
+                    <button class="btn-add" onclick="agregarComboCarrito(103, 'Desayuno Méxicano', 50.00)">Agregar ＋</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="combo-card">
+            <img src="Gemini_Generated_Image_1xmua51xmua51xmu.png" alt="Desayuno Fitness" class="combo-img">
+            <div class="combo-info">
+                <span class="combo-tag">Promoción Especial</span>
+                <h3>Desayuno Fitness</h3>
+                <p class="combo-description">Yogurt griego natural con granola crujiente, miel y fruta de temporada</p>
+                <div class="combo-footer">
+                    <span class="price">$25.00</span>
+                    <button class="btn-add" onclick="agregarComboCarrito(104, 'Desayuno Fitness', 25.00)">Agregar ＋</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="combo-card">
+            <img src="Gemini_Generated_Image_web852web852web8.png" alt="Desayuno Hot Cakes" class="combo-img">
+            <div class="combo-info">
+                <span class="combo-tag">Promoción Hot Express</span>
+                <h3>Desayuno Hot Cakes</h3>
+                <p class="combo-description">Tres hot cakes esponjosos con miel de maple, mantequilla y frutos rojos</p>
+                <div class="combo-footer">
+                    <span class="price">$95.00</span>
+                    <button class="btn-add" onclick="agregarComboCarrito(105, 'Desayuno Hot Cakes', 95.00)">Agregar ＋</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="combo-card">
+            <img src="Gemini_Generated_Image_osw8dkosw8dkosw8.png" alt="Desayuno Burrito Express" class="combo-img">
+            <div class="combo-info">
+                <span class="combo-tag">Promoción Express</span>
+                <h3>Desayuno Burrito Express</h3>
+                <p class="combo-description">Burrito de tortilla de harina relleno de huevo con chorizo, frijoles refritos y queso gratinado</p>
+                <div class="combo-footer">
+                    <span class="price">$85.00</span>
+                    <button class="btn-add" onclick="agregarComboCarrito(106, 'Desayuno Burrito Express', 85.00)">Agregar ＋</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="script.js">
+function agregarComboCarrito(id, nombre, precio) {
+    carrito.push({
+        id: id,
+        nombre: nombre,
+        precio: Number(precio)
+    });
+
+    updateCartUI();
+    showNotification(`${nombre} agregado al carrito 🛒`);
+}
+    </script>
+
+    <button id="policies-toggle" class="policies-toggle" onclick="togglePoliciesModal()">📜</button>
+
+    <div class="login-toggle" id="login-toggle" onclick="toggleLoginModal()">
+        👤
+    </div>
+
+    <div class="cart-toggle" onclick="toggleCart()">
+        🛒 <span id="cart-count">0</span>
+    </div>
+
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2>Tu Pedido</h2>
+            <button class="close-cart" onclick="toggleCart()">✕</button>
+        </div>
+        
+        <div class="cart-items" id="cart-items-container">
+        </div>
+
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">$0.00</span>
+            </div>
+            
+            <div class="payment-tabs-container">
+                <div class="payment-tabs">
+                    <button class="tab-btn active" onclick="switchPaymentTab('paypal')">PayPal</button>
+                    <button class="tab-btn" onclick="switchPaymentTab('nu')">Nu México</button>
+                </div>
+
+                <div id="tab-content-paypal" class="tab-content active">
+                    <div class="payment-form">
+                        <input type="email" id="paypal-email" placeholder="Correo electrónico de PayPal">
+                        <input type="password" id="paypal-password" placeholder="Contraseña">
+                        <button id="btn-pay-paypal" class="btn-submit-pay" disabled onclick="processPayPalPayment()">
+                            Pagar con PayPal
+                        </button>
+                    </div>
+                </div>
+
+                <div id="tab-content-nu" class="tab-content">
+                    <div class="payment-form">
+                        <input type="text" id="nu-card-number" placeholder="Número de tarjeta (16 dígitos)" maxlength="16">
+                        <input type="text" id="nu-card-name" placeholder="Nombre del titular">
+                        
+                        <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                            <input type="text" id="nu-card-expiry" placeholder="MM/AA" maxlength="5" style="width: 50%; margin-bottom: 0;">
+                            <input type="password" id="nu-card-nip" placeholder="NIP de 4 dígitos" maxlength="4" style="width: 50%; margin-bottom: 0;">
+                        </div>
+                        
+                        <button id="btn-pay-nu" class="btn-submit-pay" disabled onclick="processNuPayment()">
+                            PAGAR CON TARJETA NU
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="purchase-modal">
+        <div class="modal-content">
+            <div class="modal-icon">✓</div>
+            <h2>¡Compra Realizada!</h2>
+            <p>Tu pedido ha sido creado correctamente</p>
+            <p class="modal-sub">Recoge tu pedido en caja con tu nombre.</p>
+            <button class="btn-close-modal" onclick="closeModal('purchase-modal')">Entendido</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="login-modal">
+        <div class="modal-content login-content">
+            <div class="modal-icon login-icon">👤</div>
+            <h2>Credencial Escolar</h2>
+            <p>Ingresa tu matrícula para iniciar sesión en la cafetería.</p>
+            
+            <div class="input-container">
+                <input type="text" id="student-matricula" placeholder="Ej. 202610234" maxlength="15">
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-close-modal btn-cancel" onclick="toggleLoginModal()">Cancelar</button>
+                <button class="btn-close-modal" onclick="loginStudent()">Ingresar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="policies-modal">
+        <div class="modal-content" style="border-color: var(--accent-color); max-width: 450px;">
+            <div class="modal-icon">📄</div>
+            <h2>Reglamento y Seguridad</h2>
+            <div style="text-align: left; margin: 15px 0; color: #b4c6ef; font-size: 0.95rem; line-height: 1.5;">
+                <p>🔒 <strong>Seguridad:</strong> Tu matrícula está protegida y sólo se usa para identificar tu orden en la barra de entrega.</p><br>
+                <p>📋 <strong>Reglas del Plantel:</strong> Toda orden debe retirarse presentando tu matricula para evitar aglomeraciones en la barra.</p><br>
+                <p>💳 <strong>Métodos de Pago:</strong> Para agilizar el servicio, <strong>NO se acepta efectivo</strong>. Puedes pagar usando PayPal (vinculada con una tarjeta) o tu cuenta de Nu.</p>
+            </div>
+            <button class="btn-close-modal" onclick="closeModal('policies-modal')">Entendido</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

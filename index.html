@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafeteria TECSUM</title>
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Cafeteria TECSUM">
+    <meta name="theme-color" content="#0d1117">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Cafeteria TECSUM</h1>
+        <p class="subtitle">Centro Tecnológico De Estudios Superiores Del Valle México</p>
+    </header>
+
+    <section class="promo-container">
+        <h2 class="promo-title">⚡ Productos En Cafeteria ⚡</h2>
+        <div class="promo-slider">
+            
+            <div class="promo-card">
+                <img src="ChilaquilesBoing.png" alt="Promoción Chilaquiles + Boing" class="promo-img">
+                <button class="promo-badge" onclick="window.location.href='Combos.html';">Combo Estudiante</button>
+            </div>
+            
+            <div class="promo-card">
+                <img src="Gemini_Generated_Image_1exfb61exfb61exf.png" alt="Descuento en Frituras" class="promo-img">
+                <button class="promo-badge" onclick="window.location.href='Promocion.html';">Promocion del 2x1 en Frituras</button>
+            </div>
+
+            <div class="promo-card">
+                <img src="Gemini_Generated_Image_be75jrbe75jrbe75.png" alt="Paquete Desayuno" class="promo-img">
+                <button class="promo-badge" onclick="window.location.href='Paquete.html';">Paquete De Desayuno</button>
+            </div>
+
+            <div class="promo-card">
+                <img src="Gemini_Generated_Image_v8l5wcv8l5wcv8l5.png" alt="Paquete Desayuno" class="promo-img">
+                <button class="promo-badge" onclick="window.location.href='Comida.html';">Comidas</button>
+            </div>
+
+            <div class="promo-card">
+                <img src="Gemini_Generated_Image_3zpw223zpw223zpw.png" alt="Paquete Desayuno" class="promo-img">
+                <button class="promo-badge" onclick="window.location.href='Bebidas.html';">Bebidas</button>
+            </div>
+
+            <div class="promo-card">
+                <img src="Gemini_Generated_Image_ra2yw0ra2yw0ra2y.png" alt="Paquete Desayuno" class="promo-img">
+                <button class="promo-badge" onclick="window.location.href='snacks.html';">Snacks</button>
+            </div>
+            
+        </div>
+    </section>
+
+    <button id="policies-toggle" class="policies-toggle" onclick="togglePoliciesModal()">📜</button>
+
+    <div class="login-toggle" id="login-toggle" onclick="toggleLoginModal()">
+        👤
+    </div>
+
+    <div class="cart-toggle" onclick="toggleCart()">
+        🛒 <span id="cart-count">0</span>
+    </div>
+
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2>Tu Pedido</h2>
+            <button class="close-cart" onclick="toggleCart()">✕</button>
+        </div>
+        
+        <div class="cart-items" id="cart-items-container">
+        </div>
+
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">$0.00</span>
+            </div>
+            
+            <div class="payment-tabs-container">
+                <div class="payment-tabs">
+                    <button class="tab-btn active" onclick="switchPaymentTab('paypal')">PayPal</button>
+                    <button class="tab-btn" onclick="switchPaymentTab('nu')">Tarjeta</button>
+                </div>
+
+                <div id="tab-content-paypal" class="tab-content active">
+                    <div class="payment-form">
+                        <input type="email" id="paypal-email" placeholder="Correo electrónico de PayPal">
+                        <input type="password" id="paypal-password" placeholder="Contraseña">
+                        <button id="btn-pay-paypal" class="btn-submit-pay" disabled onclick="processPayPalPayment()">
+                            Pagar con PayPal
+                        </button>
+                    </div>
+                </div>
+
+                <div id="tab-content-nu" class="tab-content">
+                    <div class="payment-form">
+                        <input type="text" id="nu-card-number" placeholder="Número de tarjeta (16 dígitos)" maxlength="16">
+                        <input type="text" id="nu-card-name" placeholder="Nombre del titular">
+                        
+                        <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                            <input type="text" id="nu-card-expiry" placeholder="MM/AA" maxlength="5" style="width: 50%; margin-bottom: 0;">
+                            <input type="password" id="nu-card-nip" placeholder="NIP de 4 dígitos" maxlength="4" style="width: 50%; margin-bottom: 0;">
+                        </div>
+                        
+                        <button id="btn-pay-nu" class="btn-submit-pay" disabled onclick="processNuPayment()">
+                            PAGAR CON TARJETA
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="purchase-modal">
+        <div class="modal-content">
+            <div class="modal-icon">✓</div>
+            <h2>¡Compra Realizada!</h2>
+            <p>Tu pedido ha sido creado correctamente</p>
+            <p class="modal-sub">Recoge tu pedido en caja con tu nombre.</p>
+            <button class="btn-close-modal" onclick="closeModal('purchase-modal')">Entendido</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="login-modal">
+        <div class="modal-content login-content">
+            <div class="modal-icon login-icon">👤</div>
+            <h2>Credencial Escolar</h2>
+            <p>Ingresa tu matrícula para iniciar sesión en la cafetería.</p>
+            
+            <div class="input-container">
+                <input type="text" id="student-matricula" placeholder="Ej. 202610234" maxlength="15">
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-close-modal btn-cancel" onclick="toggleLoginModal()">Cancelar</button>
+                <button class="btn-close-modal" onclick="loginStudent()">Ingresar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="policies-modal">
+        <div class="modal-content" style="border-color: var(--accent-color); max-width: 450px;">
+            <div class="modal-icon">📄</div>
+            <h2>Reglamento y Seguridad</h2>
+            <div style="text-align: left; margin: 15px 0; color: #b4c6ef; font-size: 0.95rem; line-height: 1.5;">
+                <p>🔒 <strong>Seguridad:</strong> Tu matrícula está protegida y sólo se usa para identificar tu orden en la barra de entrega.</p><br>
+                <p>📋 <strong>Reglas del Plantel:</strong> Toda orden debe retirarse presentando tu matricula para evitar aglomeraciones en la barra.</p><br>
+                <p>💳 <strong>Métodos de Pago:</strong> Para agilizar el servicio, <strong>NO se acepta efectivo</strong>. Puedes pagar usando PayPal (vinculada con una tarjeta) o tu cuenta de Nu.</p>
+            </div>
+            <button class="btn-close-modal" onclick="closeModal('policies-modal')">Entendido</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
